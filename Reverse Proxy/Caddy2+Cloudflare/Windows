@@ -1,0 +1,102 @@
+#Jellyfin Caddy 2 Setup + Cloudflare Implementaton
+
+##Things You'll Need to Do This
+
+###
+1. Computer Running Windwos 10 +1902 and Up
+2. WSL2 Install Look Below on How to Do so.
+3. Linux Distrubtion from WSL2 Install. (Im Using Ubuntu 20.04)
+4. Latest Python Installed
+ -Python 3.8.3
+  *Windows X64 Python 3.8.3 [Winx64-Python3.8.3]https://www.python.org/ftp/python/3.8.3/python-3.8.3.exe
+  *Windows X86 Python 3.8.3 [Winx64-Python3.8.3]
+ -Python 2.7
+   *Windows X64 Python 2.7.18 [Winx64-Python2.7.18]https://www.python.org/ftp/python/2.7.18/python-2.7.18.amd64.msi
+   *Windows X86 Python 2.7.18 [Winx86-Python2.7.18]https://www.python.org/ftp/python/2.7.18/python-2.7.18.msi
+5. Go Module for Windows
+  *Windows X64 Download [GO-Winx64]https://dl.google.com/go/go1.14.4.windows-amd64.msi
+  *Windows X86 Downloads [GO-Winx86]https://dl.google.com/go/go1.14.4.windows-386.msi
+6. xCaddy for Windows x64
+  *xCaddy Download [xCaddy Winx64]https://github.com/caddyserver/xcaddy/releases/download/v0.1.4/xcaddy_v0.1.4_windows_amd64
+7. I would Recommend But not needed Getting Midnight Commander because it will make looking for files 100x Easier in Linux distribution. Rather than waiting for terminal to find the file and search through the entire Server to find a file. I used Midnight Commander which runs through terminal. Meaning im basically running a UI File Browser but it doesnt require UI in the system. Menaing you wont have to go through the process of installing KDE or Gnome Desktop
+   *Midnight Commander Install
+    Ubuntu
+    ```sudo apt-get install mc```
+    RHEl,CentOS,Fedora
+    ```yum install mc```
+    To Run The File Browser in terminal Type ```mc```
+    You Should get a windwos like so
+    ![Image of Midnight ](https://www.tecmint.com/wp-content/uploads/2013/10/main_window-620x394.png)
+
+##Things to Note
+
+####
+* Whenever you install anything on your System lets say through Windows. You have installed Python 2.7.18 and your running WSL2 Ubuntu 20.04. If i have already installed python on windows essentially its already installed on Ubuntu 20.04. I ran into a issue with Go where I installed Go 1.13.3 to my Windows 10 and i tried installing Go 1.14.4 and for some odd reason it wouldnt install. So make sure if you already have any of the programs installed on Windows or WSL2 make sure it meets the requrirements listed above. Otehrwise its gonna take you a while to figure out why you are getting errors thrown at you.
+* Please follow my instructions to the Number. THESE ARE VERY IMPORTANT. IF NOT DONE CORRECTLY YOU WILL HAVE A VERY HARD TIME UNDERSTANDING AND GO BACK TO UNDERSTAND WHAT YOU DID WRONG.
+* With all that said This is for Intermediate or Well Seasoned Networking Noobs. Lets start.
+
+##Installing WSL2 on Windows OS
+
+###
+  - Please Reference below on how to install Windows WSL1 or WSL2 on Windows 10
+				
+        
+        Video Guide [Click Here](https://youtu.be/ilKQHAFeQR0?t=84)
+				
+        
+        Credit Goes to YT Account Windows Developer for the Quick Tutorial
+				
+        
+        You Can Subscribe by [Clicking Here](https://www.youtube.com/channel/UCzLbHrU7U3cUDNQWWAqjceA)
+				
+        
+        Text Guide [Click Here](https://pureinfotech.com/install-windows-subsystem-linux-2-windows-10/)
+
+
+4. You Need a Linux OS installed from the Windows Store
+  - Please Reference Below on how to install Windows WSL1 or WSL2 on Windows 10
+						
+            
+        Credit Goes to YT Account Windows Developer for the Quick Tutorial
+				You Can Subscribe by [Click Here](https://www.youtube.com/channel/UCzLbHrU7U3cUDNQWWAqjceA)
+				
+        
+        Video Guide [Click Here](https://youtu.be/ilKQHAFeQR0)
+				
+        
+        Text Guide [Click Here](https://ubuntu.com/tutorials/tutorial-ubuntu-on-windows#1-overview)
+
+
+5. Configure Linux Distro
+  - Please Reference to here on how to setup Linux distro once you have completed Step 3
+			***THIS MAY TAKE SOME TIME TO LOAD PLEASE BE PATEINT DONT WORRY IT WILL Load!***
+				Credit Goes to YT Account Windows Developer for the Quick Tutorial
+				You Can Subscribe Here and View More Windows Tuts as Well [Click Here](https://www.youtube.com/channel/UCzLbHrU7U3cUDNQWWAqjceA)
+				Video Guide [Click here](https://youtu.be/ilKQHAFeQR0?t=105)
+
+6. Some type of Document Editor (Recommned Sublime Text 3)(Works with Just about every kind of scripting language with syntax checking)
+  -Download Sublime Text Editor 3 here:
+        [link to x64](https://download.sublimetext.com/Sublime%20Text%20Build%203211%20x64%20Setup.exe)
+        [link to x64 Portable](https://download.sublimetext.com/Sublime%20Text%20Build%203211%20x64.zip)
+        [link to x86](https://download.sublimetext.com/Sublime%20Text%20Build%203211%20Setup.exe)
+        [link to x86 Portable](https://download.sublimetext.com/Sublime%20Text%20Build%203211.zip) 
+7. And of course a microsoft account ie. @outlook.com @hotmail.com @live.com email account
+## Things to Note
+It might be worth while to install the new Windows Terminal in which you can switch between Windows Shell/CMD/Linux Distro/Bash Terminals all in one
+	If you would like to see how to do so Please follow Below
+		### Installing New Windows AIO Terminal
+			Download Terminal from Microsoft Store [Click Here](https://www.microsoft.com/store/productId/9N0DX20HK701)
+			Credit goes to [T-Soln](https://www.youtube.com/channel/UCzDbMkDgqs9b43vZ5yeX0gQ)
+			Video Tutorial [Click Here](https://www.youtube.com/watch?v=WmC5BQPSCsA)
+			Credit goes to [Ben Stockton](https://helpdeskgeek.com/author/bstockton/)
+			Text Tutorial [Click Here](https://helpdeskgeek.com/windows-10/how-to-install-use-the-new-windows-10-terminal/)
+You'll need all of the above requirements Before Starting
+***A SIDE NOTE IM USING THE LINUX DISTRIBUTION UBUNTU 20.04*** 
+###Before We Start if you want to make it easier on yourself or your just a noob at linux use the all the recommended downloads i have put below. That way you can literally follow me word for word.
+Download Terminal from Microsoft Store [Click Here](https://www.microsoft.com/store/productId/9N0DX20HK701)
+Download Ubuntu 20.04 [Click Here](https://www.microsoft.com/en-us/p/ubuntu-2004-lts/9n6svws3rx71?activetab=pivot:overviewtab)
+###Starting in WSL2
+    1. Open Up your Windows 10 Start menu and search for Terminal.
+    2. Once loaded it will automatically open Shell. Just Click the drop down arrow in the terminal and Select Your Linux Distrobution.
+    3. Log into your Linux Distrubition you made in the steps before.
+    4. Your are nowing running your linux distribution in Windows 10. Enjoy!
